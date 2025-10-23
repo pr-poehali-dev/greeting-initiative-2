@@ -1,6 +1,8 @@
 import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import { useNavigate } from 'react-router-dom';
 
 interface ChessPlayer {
   id: number;
@@ -23,6 +25,8 @@ interface ChessPlayer {
 }
 
 const Index = () => {
+  const navigate = useNavigate();
+  
   const playHoverSound = () => {
     try {
       const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
@@ -131,6 +135,16 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-[#1A1A2E] py-12 px-4">
       <div className="max-w-7xl mx-auto">
+        <div className="flex justify-end mb-6">
+          <Button
+            onClick={() => navigate('/profile')}
+            className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold"
+          >
+            <Icon name="User" size={20} className="mr-2" />
+            Сводка
+          </Button>
+        </div>
+
         <div className="text-center mb-12">
           <h1 className="text-6xl font-black text-white mb-4 tracking-tight">
             CHESS ULTIMATE TEAM
