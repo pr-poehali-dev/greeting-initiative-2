@@ -135,8 +135,8 @@ const Index = () => {
                 }}
               />
               
-              <Card className={`relative bg-gradient-to-br ${getRarityGradient(player.rarity)} p-1 border-4 ${getRarityBorder(player.rarity)} rounded-3xl overflow-hidden shadow-2xl`}>
-                <div className="bg-[#1A1A2E] rounded-2xl p-6 h-full">
+              <Card className={`relative bg-gradient-to-br ${getRarityGradient(player.rarity)} p-6 border-4 ${getRarityBorder(player.rarity)} rounded-3xl overflow-hidden shadow-2xl`}>
+                <div className="h-full">
                   <div className="flex justify-between items-start mb-4">
                     <div className="text-left">
                       <div className="text-5xl font-black text-white mb-1">{player.rating}</div>
