@@ -26,6 +26,10 @@ interface ChessPlayer {
 
 const Index = () => {
   const navigate = useNavigate();
+
+  const handleBackToMenu = () => {
+    navigate('/');
+  };
   
   const playHoverSound = () => {
     try {
@@ -135,7 +139,15 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-[#1A1A2E] py-12 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-end mb-6">
+        <div className="flex justify-between mb-6">
+          <Button
+            onClick={handleBackToMenu}
+            variant="ghost"
+            className="text-white/70 hover:text-white"
+          >
+            <Icon name="ArrowLeft" size={20} className="mr-2" />
+            Меню
+          </Button>
           <Button
             onClick={() => navigate('/profile')}
             className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold"

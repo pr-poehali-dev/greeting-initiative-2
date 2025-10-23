@@ -3,7 +3,6 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { useNavigate } from 'react-router-dom';
-import RegisterForm from '@/components/RegisterForm';
 
 interface PlayerStats {
   level: number;
@@ -40,17 +39,13 @@ const Profile = () => {
     const savedProfile = localStorage.getItem('userProfile');
     if (savedProfile) {
       setUserProfile(JSON.parse(savedProfile));
+    } else {
+      navigate('/');
     }
-  }, []);
+  }, [navigate]);
 
-  const handleRegister = (name: string, age: number) => {
-    const profile: UserProfile = { name, age, registered: true };
-    localStorage.setItem('userProfile', JSON.stringify(profile));
-    setUserProfile(profile);
-  };
-
-  if (!userProfile?.registered) {
-    return <RegisterForm onRegister={handleRegister} />;
+  if (!userProfile) {
+    return null;
   }
 
   const xpProgress = (playerStats.xp / playerStats.xpToNextLevel) * 100;
