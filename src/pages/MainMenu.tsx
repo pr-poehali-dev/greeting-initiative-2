@@ -61,6 +61,14 @@ const MainMenu = () => {
       color: 'from-slate-600 to-gray-600',
       hoverColor: 'hover:from-slate-700 hover:to-gray-700',
       route: '/chat'
+    },
+    {
+      title: 'Музыка',
+      description: 'Саундтреки для победителей',
+      icon: 'Music',
+      color: 'from-red-600 to-rose-600',
+      hoverColor: 'hover:from-red-700 hover:to-rose-700',
+      route: '/music'
     }
   ];
 

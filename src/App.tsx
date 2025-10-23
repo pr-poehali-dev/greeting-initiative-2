@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Profile from "./pages/Profile";
 import MainMenu from "./pages/MainMenu";
 import Chat from "./pages/Chat";
+import Music from "./pages/Music";
 import RegisterForm from "./components/RegisterForm";
 import NotFound from "./pages/NotFound";
 
@@ -47,6 +48,7 @@ const App = () => {
           <Route path="/cards" element={<Index />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/music" element={<Music />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
