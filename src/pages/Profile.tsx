@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { useNavigate } from 'react-router-dom';
+import RegisterForm from '@/components/RegisterForm';
 
 interface PlayerStats {
   level: number;
@@ -15,8 +16,15 @@ interface PlayerStats {
   coins: number;
 }
 
+interface UserProfile {
+  name: string;
+  age: number;
+  registered: boolean;
+}
+
 const Profile = () => {
   const navigate = useNavigate();
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [playerStats] = useState<PlayerStats>({
     level: 1,
     xp: 0,
@@ -27,6 +35,23 @@ const Profile = () => {
     wins: 0,
     coins: 0
   });
+
+  useEffect(() => {
+    const savedProfile = localStorage.getItem('userProfile');
+    if (savedProfile) {
+      setUserProfile(JSON.parse(savedProfile));
+    }
+  }, []);
+
+  const handleRegister = (name: string, age: number) => {
+    const profile: UserProfile = { name, age, registered: true };
+    localStorage.setItem('userProfile', JSON.stringify(profile));
+    setUserProfile(profile);
+  };
+
+  if (!userProfile?.registered) {
+    return <RegisterForm onRegister={handleRegister} />;
+  }
 
   const xpProgress = (playerStats.xp / playerStats.xpToNextLevel) * 100;
   const winRate = ((playerStats.wins / playerStats.totalMatches) * 100).toFixed(1);
@@ -45,9 +70,10 @@ const Profile = () => {
 
         <div className="text-center mb-8">
           <h1 className="text-5xl font-black text-white mb-2 tracking-tight">
-            ПРОФИЛЬ ИГРОКА
+            {userProfile.name.toUpperCase()}
           </h1>
-          <p className="text-xl text-gray-400 font-medium mb-6">Твоя статистика и прогресс</p>
+          <p className="text-xl text-gray-400 font-medium mb-2">{userProfile.age} {userProfile.age >= 5 && userProfile.age <= 20 ? 'лет' : userProfile.age % 10 === 1 && userProfile.age % 100 !== 11 ? 'год' : userProfile.age % 10 >= 2 && userProfile.age % 10 <= 4 && (userProfile.age % 100 < 10 || userProfile.age % 100 >= 20) ? 'года' : 'лет'}</p>
+          <p className="text-lg text-gray-500 font-medium mb-6">Твоя статистика и прогресс</p>
           <Button
             onClick={() => navigate('/')}
             size="lg"
