@@ -1,0 +1,38 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS request for CORS",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Send message and get Magnus reply",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "message": "Привет, Магнус! Как научиться лучше играть в шахматы?"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "reply": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Empty message returns error",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "message": ""
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

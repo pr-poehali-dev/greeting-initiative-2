@@ -109,48 +109,48 @@ const Index = () => {
   const getRarityGradient = (rarity: string) => {
     switch (rarity) {
       case 'gold':
-        return 'from-amber-900/40 via-yellow-800/30 to-amber-900/40';
+        return 'from-yellow-900/60 via-amber-800/50 to-yellow-900/60';
       case 'orange':
-        return 'from-orange-900/40 via-orange-700/30 to-orange-900/40';
+        return 'from-orange-900/60 via-orange-800/50 to-orange-900/60';
       case 'blue':
-        return 'from-blue-900/40 via-blue-700/30 to-blue-900/40';
+        return 'from-blue-950/60 via-blue-900/50 to-blue-950/60';
       case 'turquoise':
-        return 'from-cyan-900/40 via-cyan-700/30 to-cyan-900/40';
+        return 'from-cyan-950/60 via-cyan-900/50 to-cyan-950/60';
       default:
-        return 'from-gray-900/40 via-gray-700/30 to-gray-900/40';
+        return 'from-zinc-900/60 via-zinc-800/50 to-zinc-900/60';
     }
   };
 
   const getRarityBorder = (rarity: string) => {
     switch (rarity) {
       case 'gold':
-        return 'border-amber-700/60';
+        return 'border-amber-600/80';
       case 'orange':
-        return 'border-orange-700/60';
+        return 'border-orange-600/80';
       case 'blue':
-        return 'border-blue-700/60';
+        return 'border-blue-600/80';
       case 'turquoise':
-        return 'border-cyan-700/60';
+        return 'border-cyan-600/80';
       default:
-        return 'border-gray-700/60';
+        return 'border-zinc-600/80';
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#1A1A2E] py-12 px-4">
+    <div className="min-h-screen bg-background py-12 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between mb-6">
           <Button
             onClick={handleBackToMenu}
             variant="ghost"
-            className="text-white/70 hover:text-white"
+            className="text-muted-foreground hover:text-foreground"
           >
             <Icon name="ArrowLeft" size={20} className="mr-2" />
             Меню
           </Button>
           <Button
             onClick={() => navigate('/profile')}
-            className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold"
           >
             <Icon name="User" size={20} className="mr-2" />
             Сводка
@@ -158,10 +158,10 @@ const Index = () => {
         </div>
 
         <div className="text-center mb-12">
-          <h1 className="text-6xl font-black text-white mb-4 tracking-tight">
+          <h1 className="text-7xl font-black text-foreground mb-4">
             CHESS ULTIMATE TEAM
           </h1>
-          <p className="text-xl text-gray-400 font-medium">Premium Cards Collection</p>
+          <p className="text-xl text-muted-foreground font-medium tracking-wider">PREMIUM CARDS COLLECTION</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
