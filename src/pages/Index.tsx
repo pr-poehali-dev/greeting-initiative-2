@@ -135,7 +135,11 @@ const Index = () => {
                 }}
               />
               
-              <Card className={`relative bg-gradient-to-br ${getRarityGradient(player.rarity)} backdrop-blur-sm p-6 border-2 ${getRarityBorder(player.rarity)} rounded-3xl overflow-hidden shadow-xl`}>
+              <Card className={`relative bg-gradient-to-br ${getRarityGradient(player.rarity)} backdrop-blur-sm p-6 border-2 ${getRarityBorder(player.rarity)} rounded-3xl overflow-hidden shadow-xl animate-shimmer`}
+                style={{
+                  backgroundSize: '200% 200%',
+                  animation: 'shimmer 3s ease-in-out infinite'
+                }}>
                 <div className="h-full">
                   <div className="flex justify-between items-start mb-4">
                     <div className="text-left">
