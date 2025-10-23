@@ -18,14 +18,14 @@ interface PlayerStats {
 const Profile = () => {
   const navigate = useNavigate();
   const [playerStats] = useState<PlayerStats>({
-    level: 42,
-    xp: 8750,
-    xpToNextLevel: 12000,
-    totalCards: 127,
-    goldCards: 8,
-    totalMatches: 245,
-    wins: 156,
-    coins: 450000
+    level: 1,
+    xp: 0,
+    xpToNextLevel: 1000,
+    totalCards: 0,
+    goldCards: 0,
+    totalMatches: 0,
+    wins: 0,
+    coins: 0
   });
 
   const xpProgress = (playerStats.xp / playerStats.xpToNextLevel) * 100;
@@ -122,7 +122,7 @@ const Profile = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="text-center p-4 bg-black/20 rounded-xl border border-white/10">
               <Icon name="Flame" size={32} className="text-orange-400 mx-auto mb-2" />
-              <div className="text-2xl font-bold text-white/95">15</div>
+              <div className="text-2xl font-bold text-white/95">0</div>
               <div className="text-xs text-white/60">Дней подряд</div>
             </div>
             <div className="text-center p-4 bg-black/20 rounded-xl border border-white/10">
@@ -132,12 +132,12 @@ const Profile = () => {
             </div>
             <div className="text-center p-4 bg-black/20 rounded-xl border border-white/10">
               <Icon name="Zap" size={32} className="text-cyan-400 mx-auto mb-2" />
-              <div className="text-2xl font-bold text-white/95">89</div>
+              <div className="text-2xl font-bold text-white/95">0</div>
               <div className="text-xs text-white/60">Макс комбо</div>
             </div>
             <div className="text-center p-4 bg-black/20 rounded-xl border border-white/10">
               <Icon name="Crown" size={32} className="text-purple-400 mx-auto mb-2" />
-              <div className="text-2xl font-bold text-white/95">12</div>
+              <div className="text-2xl font-bold text-white/95">0</div>
               <div className="text-xs text-white/60">Титулов</div>
             </div>
           </div>
