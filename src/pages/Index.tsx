@@ -81,30 +81,30 @@ const Index = () => {
   const getRarityGradient = (rarity: string) => {
     switch (rarity) {
       case 'gold':
-        return 'from-yellow-600 via-yellow-400 to-yellow-600';
+        return 'from-amber-900/40 via-yellow-800/30 to-amber-900/40';
       case 'orange':
-        return 'from-orange-600 via-orange-400 to-orange-600';
+        return 'from-orange-900/40 via-orange-700/30 to-orange-900/40';
       case 'blue':
-        return 'from-blue-600 via-blue-400 to-blue-600';
+        return 'from-blue-900/40 via-blue-700/30 to-blue-900/40';
       case 'turquoise':
-        return 'from-cyan-600 via-cyan-400 to-cyan-600';
+        return 'from-cyan-900/40 via-cyan-700/30 to-cyan-900/40';
       default:
-        return 'from-gray-600 via-gray-400 to-gray-600';
+        return 'from-gray-900/40 via-gray-700/30 to-gray-900/40';
     }
   };
 
   const getRarityBorder = (rarity: string) => {
     switch (rarity) {
       case 'gold':
-        return 'border-yellow-500';
+        return 'border-amber-700/60';
       case 'orange':
-        return 'border-orange-500';
+        return 'border-orange-700/60';
       case 'blue':
-        return 'border-blue-500';
+        return 'border-blue-700/60';
       case 'turquoise':
-        return 'border-cyan-500';
+        return 'border-cyan-700/60';
       default:
-        return 'border-gray-500';
+        return 'border-gray-700/60';
     }
   };
 
@@ -124,27 +124,27 @@ const Index = () => {
               key={player.id}
               className="group relative transition-all duration-300 hover:scale-105 hover:-translate-y-2"
             >
-              <div className="absolute inset-0 bg-gradient-to-br opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-300 rounded-3xl"
+              <div className="absolute inset-0 bg-gradient-to-br opacity-10 blur-2xl group-hover:opacity-20 transition-opacity duration-500 rounded-3xl"
                 style={{
                   background: `linear-gradient(135deg, ${
-                    player.rarity === 'gold' ? '#FFD700, #FFA500' :
-                    player.rarity === 'orange' ? '#FF8C00, #FF6347' :
-                    player.rarity === 'blue' ? '#4169E1, #1E90FF' :
-                    '#00CED1, #20B2AA'
+                    player.rarity === 'gold' ? '#D97706, #92400E' :
+                    player.rarity === 'orange' ? '#C2410C, #7C2D12' :
+                    player.rarity === 'blue' ? '#1D4ED8, #1E3A8A' :
+                    '#0E7490, #155E75'
                   })`
                 }}
               />
               
-              <Card className={`relative bg-gradient-to-br ${getRarityGradient(player.rarity)} p-6 border-4 ${getRarityBorder(player.rarity)} rounded-3xl overflow-hidden shadow-2xl`}>
+              <Card className={`relative bg-gradient-to-br ${getRarityGradient(player.rarity)} backdrop-blur-sm p-6 border-2 ${getRarityBorder(player.rarity)} rounded-3xl overflow-hidden shadow-xl`}>
                 <div className="h-full">
                   <div className="flex justify-between items-start mb-4">
                     <div className="text-left">
-                      <div className="text-5xl font-black text-white mb-1">{player.rating}</div>
-                      <div className="text-xl font-bold text-gray-300">{player.position}</div>
+                      <div className="text-5xl font-black text-white/95 mb-1">{player.rating}</div>
+                      <div className="text-xl font-bold text-white/70">{player.position}</div>
                     </div>
                     <div className="text-right">
-                      <div className="px-3 py-1 bg-gray-800 rounded-lg border border-gray-700">
-                        <span className="text-sm font-bold text-white">{player.position}</span>
+                      <div className="px-3 py-1 bg-black/30 rounded-lg border border-white/20">
+                        <span className="text-sm font-bold text-white/90">{player.position}</span>
                       </div>
                     </div>
                   </div>
@@ -160,58 +160,58 @@ const Index = () => {
                   </div>
 
                   <div className="mb-4">
-                    <h3 className="text-2xl font-black text-white text-center mb-2">
+                    <h3 className="text-2xl font-black text-white/95 text-center mb-2">
                       {player.name}
                     </h3>
                   </div>
 
                   <div className="grid grid-cols-3 gap-2 mb-4">
                     <div className="text-center">
-                      <div className="text-xs text-gray-400 font-medium">PAC</div>
-                      <div className="text-xl font-bold text-white">{player.stats.PAC}</div>
+                      <div className="text-xs text-white/50 font-medium">PAC</div>
+                      <div className="text-xl font-bold text-white/90">{player.stats.PAC}</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-xs text-gray-400 font-medium">SHO</div>
-                      <div className="text-xl font-bold text-white">{player.stats.SHO}</div>
+                      <div className="text-xs text-white/50 font-medium">SHO</div>
+                      <div className="text-xl font-bold text-white/90">{player.stats.SHO}</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-xs text-gray-400 font-medium">PAS</div>
-                      <div className="text-xl font-bold text-white">{player.stats.PAS}</div>
+                      <div className="text-xs text-white/50 font-medium">PAS</div>
+                      <div className="text-xl font-bold text-white/90">{player.stats.PAS}</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-xs text-gray-400 font-medium">DRI</div>
-                      <div className="text-xl font-bold text-white">{player.stats.DRI}</div>
+                      <div className="text-xs text-white/50 font-medium">DRI</div>
+                      <div className="text-xl font-bold text-white/90">{player.stats.DRI}</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-xs text-gray-400 font-medium">DEF</div>
-                      <div className="text-xl font-bold text-white">{player.stats.DEF}</div>
+                      <div className="text-xs text-white/50 font-medium">DEF</div>
+                      <div className="text-xl font-bold text-white/90">{player.stats.DEF}</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-xs text-gray-400 font-medium">PHY</div>
-                      <div className="text-xl font-bold text-white">{player.stats.PHY}</div>
+                      <div className="text-xs text-white/50 font-medium">PHY</div>
+                      <div className="text-xl font-bold text-white/90">{player.stats.PHY}</div>
                     </div>
                   </div>
 
                   <div className="flex items-center justify-between mb-4 px-2">
                     <div className="flex items-center gap-1">
-                      <Icon name="Zap" size={16} className="text-yellow-500" />
-                      <span className="text-sm font-bold text-white">{player.skill}★</span>
+                      <Icon name="Zap" size={16} className="text-amber-400/80" />
+                      <span className="text-sm font-bold text-white/90">{player.skill}★</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Icon name="Navigation" size={16} className="text-gray-400" />
-                      <span className="text-sm font-bold text-white">{player.weak_foot}★</span>
+                      <Icon name="Navigation" size={16} className="text-white/50" />
+                      <span className="text-sm font-bold text-white/90">{player.weak_foot}★</span>
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-orange-600 to-orange-500 rounded-xl py-3 px-4">
+                  <div className="bg-black/20 backdrop-blur-sm rounded-xl py-3 px-4 border border-white/10">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <Icon name="Coins" size={20} className="text-yellow-300" />
-                        <span className="text-2xl font-black text-white">
+                        <Icon name="Coins" size={20} className="text-amber-400/80" />
+                        <span className="text-2xl font-black text-white/95">
                           {(player.price / 1000).toFixed(0)}K
                         </span>
                       </div>
-                      <div className="text-xs font-bold text-orange-100 uppercase">FUT</div>
+                      <div className="text-xs font-bold text-white/60 uppercase">FUT</div>
                     </div>
                   </div>
                 </div>
