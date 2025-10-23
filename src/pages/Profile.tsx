@@ -47,7 +47,15 @@ const Profile = () => {
           <h1 className="text-5xl font-black text-white mb-2 tracking-tight">
             ПРОФИЛЬ ИГРОКА
           </h1>
-          <p className="text-xl text-gray-400 font-medium">Твоя статистика и прогресс</p>
+          <p className="text-xl text-gray-400 font-medium mb-6">Твоя статистика и прогресс</p>
+          <Button
+            onClick={() => navigate('/')}
+            size="lg"
+            className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-black text-lg px-8 py-6"
+          >
+            <Icon name="Play" size={24} className="mr-2" />
+            Начать играть
+          </Button>
         </div>
 
         <Card className="bg-gradient-to-br from-amber-900/40 via-yellow-800/30 to-amber-900/40 backdrop-blur-sm p-8 border-2 border-amber-700/60 rounded-3xl mb-6">
