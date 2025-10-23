@@ -23,6 +23,12 @@ interface ChessPlayer {
 }
 
 const Index = () => {
+  const playHoverSound = () => {
+    const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIGmi78OXLeSUFIXLH8N2RQAoVXbPq66hVFApGn+DyvmwhBSp/zvLZiTYIG2i58OXLeSUFIXLH8N2RQAoVXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIG2i58OXLeSUFIXLH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIG2i58OXLeSUFIXLH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUX... [truncated]
+    audio.volume = 0.2;
+    audio.play().catch(() => {});
+  };
+
   const [players] = useState<ChessPlayer[]>([
     {
       id: 1,
@@ -123,6 +129,7 @@ const Index = () => {
             <div
               key={player.id}
               className="group relative transition-all duration-300 hover:scale-105 hover:-translate-y-2"
+              onMouseEnter={playHoverSound}
             >
               <div className="absolute inset-0 bg-gradient-to-br opacity-10 blur-2xl group-hover:opacity-20 transition-opacity duration-500 rounded-3xl"
                 style={{
