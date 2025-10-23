@@ -24,9 +24,23 @@ interface ChessPlayer {
 
 const Index = () => {
   const playHoverSound = () => {
-    const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIGmi78OXLeSUFIXLH8N2RQAoVXbPq66hVFApGn+DyvmwhBSp/zvLZiTYIG2i58OXLeSUFIXLH8N2RQAoVXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIG2i58OXLeSUFIXLH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIG2i58OXLeSUFIXLH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUXbPq66hVFApGnuDyvmwhBSuAzvLZiTYIGmi58OXLeSUFIXHH8N2RQAoUX... [truncated]
-    audio.volume = 0.2;
-    audio.play().catch(() => {});
+    try {
+      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+      oscillator.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.1);
+      
+      gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+      
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.1);
+    } catch (e) {}
   };
 
   const [players] = useState<ChessPlayer[]>([
