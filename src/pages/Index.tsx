@@ -91,6 +91,102 @@ const Index = () => {
       stats: { PAC: 86, SHO: 88, PAS: 87, DRI: 85, DEF: 86, PHY: 90 },
       skill: 3,
       weak_foot: 2
+    },
+    {
+      id: 5,
+      name: 'Garry Kasparov',
+      rating: 108,
+      position: 'CAM',
+      rarity: 'gold',
+      price: 520000,
+      image: 'https://cdn.poehali.dev/files/6b501f62-297a-4e53-b859-cddd90807910.jpg',
+      stats: { PAC: 92, SHO: 96, PAS: 99, DRI: 95, DEF: 88, PHY: 94 },
+      skill: 5,
+      weak_foot: 4
+    },
+    {
+      id: 6,
+      name: 'Hikaru Nakamura',
+      rating: 98,
+      position: 'CM',
+      rarity: 'orange',
+      price: 380000,
+      image: 'https://cdn.poehali.dev/files/fa2a2502-6820-4097-9db1-c1dab8addcd4.jpg',
+      stats: { PAC: 97, SHO: 89, PAS: 93, DRI: 96, DEF: 84, PHY: 88 },
+      skill: 5,
+      weak_foot: 4
+    },
+    {
+      id: 7,
+      name: 'Bobby Fischer',
+      rating: 110,
+      position: 'CF',
+      rarity: 'gold',
+      price: 580000,
+      image: 'https://cdn.poehali.dev/files/770c39ca-4e5e-4358-b255-0f826aa2ee48.jpg',
+      stats: { PAC: 98, SHO: 99, PAS: 96, DRI: 97, DEF: 92, PHY: 96 },
+      skill: 5,
+      weak_foot: 5
+    },
+    {
+      id: 8,
+      name: 'Fabiano Caruana',
+      rating: 94,
+      position: 'CDM',
+      rarity: 'blue',
+      price: 290000,
+      image: 'https://cdn.poehali.dev/files/eb65bb6d-48c5-4110-89a6-c0a5d3276da3.jpg',
+      stats: { PAC: 88, SHO: 91, PAS: 94, DRI: 92, DEF: 95, PHY: 93 },
+      skill: 4,
+      weak_foot: 4
+    },
+    {
+      id: 9,
+      name: 'Anatoly Karpov',
+      rating: 106,
+      position: 'CB',
+      rarity: 'orange',
+      price: 450000,
+      image: 'https://cdn.poehali.dev/files/6b501f62-297a-4e53-b859-cddd90807910.jpg',
+      stats: { PAC: 86, SHO: 85, PAS: 92, DRI: 89, DEF: 98, PHY: 97 },
+      skill: 4,
+      weak_foot: 3
+    },
+    {
+      id: 10,
+      name: 'Viswanathan Anand',
+      rating: 100,
+      position: 'LW',
+      rarity: 'blue',
+      price: 320000,
+      image: 'https://cdn.poehali.dev/files/fa2a2502-6820-4097-9db1-c1dab8addcd4.jpg',
+      stats: { PAC: 95, SHO: 93, PAS: 91, DRI: 94, DEF: 87, PHY: 89 },
+      skill: 4,
+      weak_foot: 4
+    },
+    {
+      id: 11,
+      name: 'Mikhail Tal',
+      rating: 104,
+      position: 'RW',
+      rarity: 'orange',
+      price: 420000,
+      image: 'https://cdn.poehali.dev/files/770c39ca-4e5e-4358-b255-0f826aa2ee48.jpg',
+      stats: { PAC: 96, SHO: 97, PAS: 90, DRI: 98, DEF: 82, PHY: 86 },
+      skill: 5,
+      weak_foot: 3
+    },
+    {
+      id: 12,
+      name: 'Levon Aronian',
+      rating: 90,
+      position: 'LB',
+      rarity: 'turquoise',
+      price: 180000,
+      image: 'https://cdn.poehali.dev/files/eb65bb6d-48c5-4110-89a6-c0a5d3276da3.jpg',
+      stats: { PAC: 84, SHO: 82, PAS: 88, DRI: 87, DEF: 91, PHY: 90 },
+      skill: 3,
+      weak_foot: 3
     }
   ]);
 
