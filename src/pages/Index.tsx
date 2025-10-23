@@ -150,7 +150,7 @@ const Index = () => {
                   </div>
 
                   <div className="flex justify-center mb-4">
-                    <div className="w-48 h-48 rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-gray-700">
+                    <div className="w-48 h-48 rounded-xl overflow-hidden border-2 border-white/20">
                       <img
                         src={player.image}
                         alt={player.name}
