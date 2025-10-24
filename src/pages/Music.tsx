@@ -54,35 +54,19 @@ const Music = () => {
     },
     {
       id: 5,
-      title: "The Godfather Theme",
-      artist: "Nino Rota",
-      duration: "3:42",
+      title: "На районе",
+      artist: "UNNV",
+      duration: "3:05",
       cover: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=400",
       url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
     },
     {
       id: 6,
-      title: "Eye of the Tiger",
-      artist: "Survivor",
-      duration: "4:04",
+      title: "Черная волга",
+      artist: "UNNV",
+      duration: "4:12",
       cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400",
       url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"
-    },
-    {
-      id: 7,
-      title: "Dark Knight",
-      artist: "Hans Zimmer",
-      duration: "4:18",
-      cover: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=400",
-      url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"
-    },
-    {
-      id: 8,
-      title: "Immigrant Song",
-      artist: "Led Zeppelin",
-      duration: "2:26",
-      cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400",
-      url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
     }
   ];
 
