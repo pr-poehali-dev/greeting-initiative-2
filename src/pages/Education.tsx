@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import { lessons, Lesson } from '@/data/lessons';
+import LessonViewer from '@/components/LessonViewer';
 
 interface Subject {
   id: number;
@@ -16,6 +18,7 @@ interface Subject {
 const Education = () => {
   const navigate = useNavigate();
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
+  const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
 
   const subjects: Subject[] = [
     {
@@ -224,7 +227,17 @@ const Education = () => {
     }
   ];
 
+  if (selectedLesson) {
+    return (
+      <LessonViewer 
+        lesson={selectedLesson} 
+        onBack={() => setSelectedLesson(null)} 
+      />
+    );
+  }
+
   if (selectedSubject) {
+    const subjectLessons = lessons.filter(l => l.subjectId === selectedSubject.id);
     return (
       <div className="min-h-screen bg-background py-12 px-4">
         <div className="max-w-4xl mx-auto">
@@ -242,25 +255,40 @@ const Education = () => {
           </Card>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {selectedSubject.topics.map((topic, idx) => (
+            {subjectLessons.map((lesson, idx) => (
               <Card
-                key={idx}
+                key={lesson.id}
                 className="p-6 bg-card/50 backdrop-blur border-2 hover:border-primary/50 transition-all cursor-pointer group"
+                onClick={() => setSelectedLesson(lesson)}
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-2xl font-black text-primary">
                     {idx + 1}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                      {topic}
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors mb-1">
+                      {lesson.title}
                     </h3>
+                    <p className="text-sm text-muted-foreground">{lesson.description}</p>
+                    <div className="flex items-center gap-2 mt-2">
+                      <Icon name="HelpCircle" size={16} className="text-amber-500" />
+                      <span className="text-sm text-amber-500 font-semibold">
+                        {lesson.questions.length} {lesson.questions.length === 1 ? 'вопрос' : 'вопроса'}
+                      </span>
+                    </div>
                   </div>
-                  <Icon name="BookOpen" size={24} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                  <Icon name="Play" size={24} className="text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
               </Card>
             ))}
           </div>
+          
+          {subjectLessons.length === 0 && (
+            <div className="text-center py-12">
+              <div className="text-6xl mb-4">🚧</div>
+              <p className="text-xl text-muted-foreground">Уроки скоро появятся!</p>
+            </div>
+          )}
         </div>
       </div>
     );
