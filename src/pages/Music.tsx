@@ -26,7 +26,7 @@ const Music = () => {
       artist: "UNNV",
       duration: "3:15",
       cover: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400",
-      url: "https://rus.hitmotop.com/get/music/20180307/UNNV_aNONIM_-_Bukhanka_64084056.mp3"
+      url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
     },
     {
       id: 2,
@@ -34,7 +34,7 @@ const Music = () => {
       artist: "UNNV",
       duration: "3:42",
       cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400",
-      url: "https://rus.hitmotop.com/get/music/20180307/UNNV_aNONIM_-_Mojj_Kalashnikov_64084057.mp3"
+      url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
     },
     {
       id: 3,
@@ -42,7 +42,7 @@ const Music = () => {
       artist: "UNNV",
       duration: "2:58",
       cover: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400",
-      url: "https://rus.hitmotop.com/get/music/20180307/UNNV_aNONIM_-_Mambl_64084055.mp3"
+      url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
     },
     {
       id: 4,
@@ -50,7 +50,7 @@ const Music = () => {
       artist: "UNNV",
       duration: "3:28",
       cover: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400",
-      url: "https://rus.hitmotop.com/get/music/20171212/UNNV_aNONIM_-_Rehpuju_v_shapke_59584074.mp3"
+      url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
     },
     {
       id: 5,
@@ -58,7 +58,7 @@ const Music = () => {
       artist: "Nino Rota",
       duration: "3:42",
       cover: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=400",
-      url: "https://www.mfiles.co.uk/mp3-downloads/godfather-theme.mp3"
+      url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
     },
     {
       id: 6,
@@ -66,7 +66,23 @@ const Music = () => {
       artist: "Survivor",
       duration: "4:04",
       cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400",
-      url: "https://www.mfiles.co.uk/mp3-downloads/brahms-st-anthony-chorale-theme-two-pianos.mp3"
+      url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"
+    },
+    {
+      id: 7,
+      title: "Dark Knight",
+      artist: "Hans Zimmer",
+      duration: "4:18",
+      cover: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=400",
+      url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"
+    },
+    {
+      id: 8,
+      title: "Immigrant Song",
+      artist: "Led Zeppelin",
+      duration: "2:26",
+      cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400",
+      url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
     }
   ];
 
