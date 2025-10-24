@@ -22,49 +22,49 @@ const Music = () => {
   const songs: Song[] = [
     {
       id: 1,
-      title: "Буханка",
-      artist: "UNNV",
-      duration: "3:15",
-      cover: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400",
+      title: "Cadillac",
+      artist: "Моргенштерн",
+      duration: "2:58",
+      cover: "https://images.unsplash.com/photo-1611329857570-f02f340e7378?w=400",
       url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
     },
     {
       id: 2,
-      title: "Мой калашников",
-      artist: "UNNV",
-      duration: "3:42",
-      cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400",
+      title: "Ice",
+      artist: "Моргенштерн",
+      duration: "2:45",
+      cover: "https://images.unsplash.com/photo-1551410224-699683e15636?w=400",
       url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
     },
     {
       id: 3,
-      title: "Мамбл",
-      artist: "UNNV",
-      duration: "2:58",
-      cover: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400",
+      title: "Aristocrat",
+      artist: "Моргенштерн",
+      duration: "3:12",
+      cover: "https://images.unsplash.com/photo-1549737221-68148895eb30?w=400",
       url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
     },
     {
       id: 4,
-      title: "Рэпую в шапке",
-      artist: "UNNV",
-      duration: "3:28",
-      cover: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400",
+      title: "Yung Hefner",
+      artist: "Моргенштерн",
+      duration: "3:08",
+      cover: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=400",
       url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
     },
     {
       id: 5,
-      title: "На районе",
-      artist: "UNNV",
-      duration: "3:05",
+      title: "Пососи",
+      artist: "Моргенштерн",
+      duration: "2:52",
       cover: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=400",
       url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
     },
     {
       id: 6,
-      title: "Черная волга",
-      artist: "UNNV",
-      duration: "4:12",
+      title: "Familia",
+      artist: "Моргенштерн",
+      duration: "3:24",
       cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400",
       url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"
     }
