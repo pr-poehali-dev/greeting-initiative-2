@@ -10,6 +10,9 @@ import Profile from "./pages/Profile";
 import MainMenu from "./pages/MainMenu";
 import Chat from "./pages/Chat";
 import Music from "./pages/Music";
+import Shop from "./pages/Shop";
+import Play from "./pages/Play";
+import Education from "./pages/Education";
 import RegisterForm from "./components/RegisterForm";
 import NotFound from "./pages/NotFound";
 
@@ -49,6 +52,9 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/music" element={<Music />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/play" element={<Play />} />
+          <Route path="/education" element={<Education />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

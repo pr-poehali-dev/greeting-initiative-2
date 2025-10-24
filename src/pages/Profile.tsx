@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { useNavigate } from 'react-router-dom';
+import { useGameStore } from '@/store/gameStore';
 
 interface PlayerStats {
   level: number;
@@ -24,16 +25,18 @@ interface UserProfile {
 const Profile = () => {
   const navigate = useNavigate();
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
-  const [playerStats] = useState<PlayerStats>({
+  const { coins, playerCards } = useGameStore();
+  
+  const playerStats: PlayerStats = {
     level: 1,
     xp: 0,
     xpToNextLevel: 1000,
-    totalCards: 0,
-    goldCards: 0,
+    totalCards: playerCards.length,
+    goldCards: playerCards.filter(c => c.rarity === 'gold').length,
     totalMatches: 0,
     wins: 0,
-    coins: 0
-  });
+    coins: coins
+  };
 
   useEffect(() => {
     const savedProfile = localStorage.getItem('userProfile');

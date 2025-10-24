@@ -24,39 +24,47 @@ const MainMenu = () => {
   const menuItems = [
     {
       title: 'Играть',
-      description: 'Открывать карточки и коллекционировать',
-      icon: 'Play',
+      description: 'Шахматы с ботами',
+      icon: 'Gamepad2',
       color: 'from-green-600 to-emerald-600',
       hoverColor: 'hover:from-green-700 hover:to-emerald-700',
-      route: '/cards'
+      route: '/play'
     },
     {
-      title: 'Профиль',
-      description: 'Статистика и достижения',
-      icon: 'User',
-      color: 'from-blue-600 to-cyan-600',
-      hoverColor: 'hover:from-blue-700 hover:to-cyan-700',
-      route: '/profile'
+      title: 'Магазин',
+      description: 'Покупай паки карточек',
+      icon: 'ShoppingBag',
+      color: 'from-amber-600 to-orange-600',
+      hoverColor: 'hover:from-amber-700 hover:to-orange-700',
+      route: '/shop'
     },
     {
       title: 'Коллекция',
-      description: 'Все твои карточки',
+      description: 'Твои карточки',
       icon: 'Library',
       color: 'from-purple-600 to-pink-600',
       hoverColor: 'hover:from-purple-700 hover:to-pink-700',
       route: '/cards'
     },
     {
-      title: 'Магазин',
-      description: 'Покупай новые паки',
-      icon: 'ShoppingBag',
-      color: 'from-amber-600 to-orange-600',
-      hoverColor: 'hover:from-amber-700 hover:to-orange-700',
-      route: '/cards'
+      title: 'Учёба',
+      description: 'Изучай школьные предметы',
+      icon: 'GraduationCap',
+      color: 'from-blue-600 to-cyan-600',
+      hoverColor: 'hover:from-blue-700 hover:to-cyan-700',
+      route: '/education'
+    },
+    {
+      title: 'Профиль',
+      description: 'Статистика и достижения',
+      icon: 'User',
+      color: 'from-indigo-600 to-purple-600',
+      hoverColor: 'hover:from-indigo-700 hover:to-purple-700',
+      route: '/profile'
     },
     {
       title: 'Мессенджер',
-      description: 'Переписка с Магнусом Карлсеном',
+      description: 'Переписка с Магнусом',
       icon: 'MessageSquare',
       color: 'from-slate-600 to-gray-600',
       hoverColor: 'hover:from-slate-700 hover:to-gray-700',
@@ -64,7 +72,7 @@ const MainMenu = () => {
     },
     {
       title: 'Музыка',
-      description: 'Саундтреки для победителей',
+      description: 'Саундтреки победителей',
       icon: 'Music',
       color: 'from-red-600 to-rose-600',
       hoverColor: 'hover:from-red-700 hover:to-rose-700',

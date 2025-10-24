@@ -1,8 +1,9 @@
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { useNavigate } from 'react-router-dom';
+import { useGameStore } from '@/store/gameStore';
 
 interface ChessPlayer {
   id: number;
@@ -51,60 +52,11 @@ const Index = () => {
     } catch (e) {}
   };
 
-  const [players] = useState<ChessPlayer[]>([
-    {
-      id: 1,
-      name: 'Magnus Carlsen',
-      rating: 112,
-      position: 'ST',
-      rarity: 'gold',
-      price: 560000,
-      image: 'https://cdn.poehali.dev/files/6b501f62-297a-4e53-b859-cddd90807910.jpg',
-      stats: { PAC: 99, SHO: 98, PAS: 97, DRI: 98, DEF: 99, PHY: 99 },
-      skill: 5,
-      weak_foot: 5
-    },
-    {
-      id: 2,
-      name: 'Magnus Carlsen',
-      rating: 102,
-      position: 'ST',
-      rarity: 'orange',
-      price: 340000,
-      image: 'https://cdn.poehali.dev/files/fa2a2502-6820-4097-9db1-c1dab8addcd4.jpg',
-      stats: { PAC: 96, SHO: 96, PAS: 97, DRI: 98, DEF: 97, PHY: 99 },
-      skill: 4,
-      weak_foot: 4
-    },
-    {
-      id: 3,
-      name: 'Magnus Carlsen',
-      rating: 96,
-      position: 'ST',
-      rarity: 'blue',
-      price: 270000,
-      image: 'https://cdn.poehali.dev/files/770c39ca-4e5e-4358-b255-0f826aa2ee48.jpg',
-      stats: { PAC: 95, SHO: 94, PAS: 96, DRI: 96, DEF: 96, PHY: 98 },
-      skill: 4,
-      weak_foot: 3
-    },
-    {
-      id: 4,
-      name: 'Magnus Carlsen',
-      rating: 88,
-      position: 'ST',
-      rarity: 'turquoise',
-      price: 155000,
-      image: 'https://cdn.poehali.dev/files/eb65bb6d-48c5-4110-89a6-c0a5d3276da3.jpg',
-      stats: { PAC: 86, SHO: 88, PAS: 87, DRI: 85, DEF: 86, PHY: 90 },
-      skill: 3,
-      weak_foot: 2
-    }
-  ]);
+  const { playerCards } = useGameStore();
 
   const sortedPlayers = useMemo(() => {
-    return [...players].sort((a, b) => b.price - a.price);
-  }, [players]);
+    return [...playerCards].sort((a, b) => b.price - a.price);
+  }, [playerCards]);
 
   const getRarityGradient = (rarity: string) => {
     switch (rarity) {
@@ -159,12 +111,24 @@ const Index = () => {
 
         <div className="text-center mb-12">
           <h1 className="text-7xl font-black text-foreground mb-4">
-            CHESS ULTIMATE TEAM
+            МОЯ КОЛЛЕКЦИЯ
           </h1>
-          <p className="text-xl text-muted-foreground font-medium tracking-wider">PREMIUM CARDS COLLECTION</p>
+          <p className="text-xl text-muted-foreground font-medium tracking-wider">
+            {playerCards.length === 0 ? 'У тебя пока нет карточек. Купи паки в магазине!' : `ВСЕГО КАРТОЧЕК: ${playerCards.length}`}
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {playerCards.length === 0 ? (
+          <div className="text-center py-20">
+            <div className="text-8xl mb-6">📦</div>
+            <h2 className="text-4xl font-black text-muted-foreground mb-4">Коллекция пуста</h2>
+            <Button onClick={() => navigate('/shop')} size="lg" className="text-xl">
+              <Icon name="ShoppingBag" size={24} className="mr-2" />
+              Открыть магазин
+            </Button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {sortedPlayers.map((player) => (
             <div
               key={player.id}
@@ -270,6 +234,7 @@ const Index = () => {
             </div>
           ))}
         </div>
+        )}
       </div>
     </div>
   );
