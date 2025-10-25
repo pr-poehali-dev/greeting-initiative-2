@@ -18,7 +18,7 @@ const LessonViewer = ({ lesson, onBack }: LessonViewerProps) => {
   const [showExplanation, setShowExplanation] = useState(false);
   const [score, setScore] = useState(0);
   const [completed, setCompleted] = useState(false);
-  const { addCoins } = useGameStore();
+  const { addCoins, completLesson } = useGameStore();
 
   const question = lesson.questions[currentQuestion];
 
@@ -50,6 +50,7 @@ const LessonViewer = ({ lesson, onBack }: LessonViewerProps) => {
       setSelectedAnswer(null);
       setShowExplanation(false);
     } else {
+      completLesson(lesson.id, score, lesson.questions.length);
       setCompleted(true);
     }
   };

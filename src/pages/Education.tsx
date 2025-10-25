@@ -5,6 +5,10 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { lessons, Lesson } from '@/data/lessons';
 import LessonViewer from '@/components/LessonViewer';
+import StatsPanel from '@/components/StatsPanel';
+import AchievementsPanel from '@/components/AchievementsPanel';
+import DailyQuestsPanel from '@/components/DailyQuestsPanel';
+import LeaderboardPanel from '@/components/LeaderboardPanel';
 
 interface Subject {
   id: number;
@@ -19,6 +23,7 @@ const Education = () => {
   const navigate = useNavigate();
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
+  const [activeTab, setActiveTab] = useState<'subjects' | 'stats' | 'achievements' | 'quests' | 'leaderboard'>('subjects');
 
   const subjects: Subject[] = [
     {
@@ -304,10 +309,60 @@ const Education = () => {
           </Button>
         </div>
 
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-7xl font-black text-foreground mb-4">УЧЁБА</h1>
-          <p className="text-xl text-muted-foreground">Выбери предмет для изучения</p>
+          <p className="text-xl text-muted-foreground">Изучай, развивайся, достигай!</p>
         </div>
+
+        <div className="flex flex-wrap gap-3 justify-center mb-12">
+          <Button 
+            onClick={() => setActiveTab('subjects')}
+            variant={activeTab === 'subjects' ? 'default' : 'outline'}
+            size="lg"
+          >
+            <Icon name="BookOpen" size={20} className="mr-2" />
+            Предметы
+          </Button>
+          <Button 
+            onClick={() => setActiveTab('stats')}
+            variant={activeTab === 'stats' ? 'default' : 'outline'}
+            size="lg"
+          >
+            <Icon name="BarChart" size={20} className="mr-2" />
+            Статистика
+          </Button>
+          <Button 
+            onClick={() => setActiveTab('achievements')}
+            variant={activeTab === 'achievements' ? 'default' : 'outline'}
+            size="lg"
+          >
+            <Icon name="Trophy" size={20} className="mr-2" />
+            Достижения
+          </Button>
+          <Button 
+            onClick={() => setActiveTab('quests')}
+            variant={activeTab === 'quests' ? 'default' : 'outline'}
+            size="lg"
+          >
+            <Icon name="Target" size={20} className="mr-2" />
+            Задания
+          </Button>
+          <Button 
+            onClick={() => setActiveTab('leaderboard')}
+            variant={activeTab === 'leaderboard' ? 'default' : 'outline'}
+            size="lg"
+          >
+            <Icon name="Users" size={20} className="mr-2" />
+            Рейтинг
+          </Button>
+        </div>
+
+        {activeTab === 'subjects' && (
+          <div>
+            <div className="text-center mb-8">
+              <h2 className="text-4xl font-black text-foreground mb-2">Выбери предмет</h2>
+              <p className="text-lg text-muted-foreground">12 предметов • 50+ уроков</p>
+            </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {subjects.map((subject) => (
@@ -328,6 +383,13 @@ const Education = () => {
             </Card>
           ))}
         </div>
+          </div>
+        )}
+
+        {activeTab === 'stats' && <StatsPanel />}
+        {activeTab === 'achievements' && <AchievementsPanel />}
+        {activeTab === 'quests' && <DailyQuestsPanel />}
+        {activeTab === 'leaderboard' && <LeaderboardPanel />}
       </div>
     </div>
   );
