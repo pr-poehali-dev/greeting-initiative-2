@@ -112,6 +112,11 @@ const ChessGame = ({ bot, onExit }: ChessGameProps) => {
 
     const gameCopy = new Chess(game.fen());
     
+    // Проверяем, что сейчас ход белых (игрок)
+    if (gameCopy.turn() !== 'w') {
+      return false; // Не даём игроку ходить за чёрных
+    }
+    
     try {
       const move = gameCopy.move({
         from: sourceSquare,
@@ -131,7 +136,8 @@ const ChessGame = ({ bot, onExit }: ChessGameProps) => {
 
       checkGameStatus(gameCopy);
 
-      if (!gameCopy.isGameOver()) {
+      // Бот ходит только если игра не окончена и сейчас его ход (чёрные)
+      if (!gameCopy.isGameOver() && gameCopy.turn() === 'b') {
         setTimeout(() => makeRandomMove(), 500);
       }
 
