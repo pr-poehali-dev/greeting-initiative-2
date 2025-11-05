@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import { Chessboard } from 'react-chessboard';
+import ChessBoard from '@/components/ChessBoard';
 import { Chess } from 'chess.js';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -180,11 +180,10 @@ const ChessGame = ({ bot, onExit }: ChessGameProps) => {
                 </div>
               </div>
 
-              <div className="w-full max-w-2xl mx-auto">
-                <Chessboard
+              <div className="w-full flex justify-center">
+                <ChessBoard
                   position={game.fen()}
                   onPieceDrop={onDrop}
-                  boardWidth={Math.min(600, window.innerWidth - 100)}
                 />
               </div>
 
