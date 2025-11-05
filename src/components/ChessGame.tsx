@@ -32,8 +32,8 @@ const ChessGame = ({ bot, onExit }: ChessGameProps) => {
     return phrases[Math.floor(Math.random() * phrases.length)];
   };
 
-  const makeRandomMove = useCallback(() => {
-    const possibleMoves = game.moves();
+  const makeRandomMove = useCallback((currentGame: Chess) => {
+    const possibleMoves = currentGame.moves();
     
     if (possibleMoves.length === 0) return;
 
@@ -67,7 +67,7 @@ const ChessGame = ({ bot, onExit }: ChessGameProps) => {
         chosenMove = possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
     }
 
-    const gameCopy = new Chess(game.fen());
+    const gameCopy = new Chess(currentGame.fen());
     gameCopy.move(chosenMove);
     setGame(gameCopy);
 
@@ -78,7 +78,7 @@ const ChessGame = ({ bot, onExit }: ChessGameProps) => {
     }
 
     checkGameStatus(gameCopy);
-  }, [game, bot]);
+  }, [bot]);
 
   const checkGameStatus = (currentGame: Chess) => {
     if (currentGame.isCheckmate()) {
@@ -138,7 +138,7 @@ const ChessGame = ({ bot, onExit }: ChessGameProps) => {
 
       // Бот ходит только если игра не окончена и сейчас его ход (чёрные)
       if (!gameCopy.isGameOver() && gameCopy.turn() === 'b') {
-        setTimeout(() => makeRandomMove(), 500);
+        setTimeout(() => makeRandomMove(gameCopy), 500);
       }
 
       return true;
